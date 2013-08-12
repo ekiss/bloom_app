@@ -5,6 +5,19 @@ describe "Static pages" do
   subject { page }
   let(:base_title) { "Bloom" }
 
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About Us"
+    expect(page).to have_title(full_title('About Us'))
+    click_link "Contact"
+    expect(page).to have_title(full_title('Contact Us'))
+    click_link "Home"
+    click_link "Sign up now!"
+    expect(page).to have_title(full_title('Sign Up'))
+    click_link "bloom"
+    expect(page).to have_title(full_title(''))
+  end
+
   describe "Home page" do
 
   	before { visit root_path }
@@ -20,7 +33,7 @@ describe "Static pages" do
 
   	before { visit about_path }
 
-    it { should have_content("About Us")}
+    it { should have_selector('h1',"About Us")}
 
     it { should have_title(full_title("About Us"))}
   end
@@ -29,7 +42,7 @@ describe "Static pages" do
 
   	before { visit contact_path }
 
-    it { should have_content("Contact Us")}
+    it { should have_selector('h1',"Contact Us")}
 
     it { should have_title(full_title("Contact Us"))}
   end
