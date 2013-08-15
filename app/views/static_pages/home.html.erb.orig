@@ -5,5 +5,9 @@
     Farming of the future
   </h2>
 
+<<<<<<< HEAD
+  <%= link_to "Sign up immediately!", signup_path, class: "btn btn-large btn-primary" %>
+=======
   <%= link_to "Sign up!", signup_path, class: "btn btn-large btn-primary" %>
+>>>>>>> 743e515e7fb4e329494fe070d384b7736301d919
 </div>
